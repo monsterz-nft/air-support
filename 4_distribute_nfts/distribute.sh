@@ -38,10 +38,10 @@ do
   TOKEN_ACCOUNT_ADDRESS=$(spl-token accounts --output json | jq ".accounts[] | select(.mint==\"${TOKEN_MINT_ADDRESS}\") | .address" | sed s/\\\"//g)
 
   echo ""
-  echo "${i}: spl-token transfer ${TOKEN_MINT_ADDRESS} 1 ${RECIPIENT} --from ${TOKEN_ACCOUNT_ADDRESS} --url ${RPC_HOST} --fund-recipient --allow-unfunded-recipient | tee ${OUTFILE}"
+  echo "${i}: spl-token transfer ${TOKEN_MINT_ADDRESS} 1 ${RECIPIENT} --from ${TOKEN_ACCOUNT_ADDRESS} --url ${RPC_HOST} --fund-recipient --allow-unfunded-recipient | tee -a ${OUTFILE}"
   echo ""
 
-  spl-token transfer ${TOKEN_MINT_ADDRESS} 1 ${RECIPIENT} --from ${TOKEN_ACCOUNT_ADDRESS} --url ${RPC_HOST} --fund-recipient --allow-unfunded-recipient | tee ${OUTFILE} 
+  spl-token transfer ${TOKEN_MINT_ADDRESS} 1 ${RECIPIENT} --from ${TOKEN_ACCOUNT_ADDRESS} --url ${RPC_HOST} --fund-recipient --allow-unfunded-recipient | tee -a ${OUTFILE} 
 done
 
 echo ""
