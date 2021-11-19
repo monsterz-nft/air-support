@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 METAPLEX_PATH=${1:-"../metaplex"}
 KEYPAIR=$2
